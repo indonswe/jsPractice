@@ -47,12 +47,17 @@
                                 const persons = [];
                               
                                 function addPerson() {
-                                    
+                                    console.log("oki");   
                                 let personNameAdded = document.getElementById("name").value;
-                                let birthDateAdded = document.getElementById("birthdate ").value;
+                                console.log(personNameAdded); 
+                                let birthDateAdded = document.getElementById("birthDate").value;
+                                console.log(birthDateAdded); 
                                 let person = {personName : personNameAdded,
-                                    birthDate : birthDateAdded}
-
+                                    birthDate : birthDateAdded};
+                                    let amount = persons.length;
+                                    persons.push(person);
+                                    console.log(persons);
+                                    displayData()
 
                                    // todo: implement add person function
                                    // create a random value for id property
@@ -62,8 +67,12 @@
                                    //todo: find the person by id from the list then remove it
                                 }
 
-                                function displayData(){     
+                                function displayData(){  
+                                    console.log("datawillread");   
                                     const tableRows = persons.map((person) => {
+
+
+                                    
 
                                     //todo: implement a string template for creating the table rows using <tr> and <td> with person propeties
                                     const row = ``;
