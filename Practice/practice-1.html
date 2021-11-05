@@ -47,35 +47,47 @@
                                 const persons = [];
                               
                                 function addPerson() {
-                                    console.log("oki");   
-                                let personNameAdded = document.getElementById("name").value;
-                                console.log(personNameAdded); 
-                                let birthDateAdded = document.getElementById("birthDate").value;
-                                console.log(birthDateAdded); 
-                                let person = {personName : personNameAdded,
-                                    birthDate : birthDateAdded};
-                                    let amount = persons.length;
-                                    persons.push(person);
-                                    console.log(persons);
-                                    displayData()
+                                  
 
                                    // todo: implement add person function
                                    // create a random value for id property
+
+                                   const id = Math.floor(Math.random() * 1000000);
+                                    const name =  document.getElementById("name").value;
+                                    const birthDate = document.getElementById("birthDate").value;
+                                    const newPerson = {id, name, birthDate};
+                                    persons.push(newPerson);
+                                    displayData();
                                 }
 
                                 function deletePerson(id) {
                                    //todo: find the person by id from the list then remove it
+                                   const personIndex = persons.findIndex(element => element.id === id);
+                                    console.log(personIndex);
+                                    persons.splice(personIndex, 1);
+                                    // re-create the table body with new list.
+                                    displayData();
                                 }
 
                                 function displayData(){  
-                                    console.log("datawillread");   
                                     const tableRows = persons.map((person) => {
+                                    
+                                    //todo: implement a string template for creating the table rows using <tr> and <td> with person propeties
+                                    
+                                        const row = `<tr id=${person.id}>
+                                        <td>${person.id}</td>
+                                        <td>${person.name}</td>
+                                        <td>${person.birthDate}</td>
+                                        <td><button type='button' class='btn btn-danger' onclick='deletePerson(${person.id})'>X</button></td>
+                                    </tr>`;
+
+                                   
 
 
                                     
 
-                                    //todo: implement a string template for creating the table rows using <tr> and <td> with person propeties
-                                    const row = ``;
+                                    
+                                    
 
                                     return row;
                                     });
